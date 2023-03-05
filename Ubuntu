@@ -1,0 +1,18 @@
+$ sudo fuser -vvv /var/lib/dpkg/lock
+$ cat /etc/lsb-release
+$ uname -a
+$ sudo rm /var/lib/apt/lists/lock
+$ sudo cp -arf /var/lib/dpkg /var/lib/dpkg.backup
+$ sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
+$ sudo cp /var/lib/dpkg/available-old /var/lib/dpkg/available
+$ sudo rm -rf /var/lib/dpkg/updates/*
+$ sudo rm -rf /var/lib/apt/lists
+$ sudo rm /var/cache/apt/*.bin
+$ sudo mkdir /var/lib/apt/lists
+$ sudo mkdir /var/lib/apt/lists/partial
+$ LANG=C;sudo apt-get clean
+$ LANG=C;sudo apt-get autoclean
+$ LANG=C;sudo apt-get --purge autoremove
+$ LANG=C;sudo apt-get update -o APT::Cache-Limit=25165824
+$ sudo dpkg --clear-avail
+$ sudo dpkg --configure -a
